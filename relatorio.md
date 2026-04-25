@@ -122,6 +122,29 @@ Além disso, o desvio padrão apresentou os seguintes valores:
 
 Esses valores indicam que funções mais simples, como H1, tendem a concentrar elementos em poucos buckets, aumentando o número de colisões. Já funções mais elaboradas distribuem melhor os dados.
 
+# 6.1.2 Histogramas de distribuição
+
+Para complementar a análise da distribuição dos dados na tabela hash, foram gerados histogramas considerando a função H3 (polinomial) com M = 997.
+
+Essa configuração foi escolhida por apresentar um dos melhores desempenhos entre os cenários avaliados.
+
+##### Texto: Tale of Two Cities
+
+![Histograma Tale](img/hist_tale.png)
+
+O histograma demonstra uma distribuição relativamente uniforme dos elementos entre os buckets, indicando que a função de hash foi eficiente na dispersão das palavras.
+
+A maior parte dos buckets apresenta tamanhos próximos, sem a formação de grandes concentrações, o que reduz o número de colisões e melhora o desempenho das operações de busca.
+
+##### Texto: Quincas Borba
+
+![Histograma Quincas](img/hist_quincas.png)
+
+Observa-se uma distribuição aproximadamente uniforme, com a maioria dos buckets contendo valores próximos entre si.
+
+Esse comportamento indica que a função de hash conseguiu distribuir bem os dados, evitando agrupamentos excessivos (clustering).
+
+Além disso, há poucos casos de buckets com valores extremos, o que reforça a qualidade da função de espalhamento utilizada.
 ---
 
 ### 6.2 Custo de busca na tabela hash
